@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomeScreen from './assets/screens/HomeScreen/HomeScreen';
+import AppRoutes from './routes';
 
 function App() {
   return (
     <>
-      <HomeScreen></HomeScreen>
+      <AppRoutes />
     </>
   )
 }

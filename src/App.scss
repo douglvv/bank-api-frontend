@@ -12,18 +12,35 @@ html, body, #root {
 $custom-colors: (
   "orange": ($orange),
   "orange-dark": ($orange-dark),
-  "custom-gray": ($custom-gray)
+  "custom-gray": ($custom-gray),
+  "custom-gray-dark": ($custom-gray-dark),
+  "body-color": ($body-color),
+  "body-bg": ($body-bg)
 );
 
-.btn-orange {
+
+// Custom buttons
+.btn-outline-orange {
+  color: $orange;
+  background-color: transparent;
+  border-color: $orange;
+}
+.btn-outline-orange:hover {
   color: white;
   background-color: $orange;
   border-color: $orange;
 }
-.btn-orange:hover{
-  color: white;
-  background-color: $orange-dark;
-  border-color: $orange-dark;
+.btn-custom-gray {
+  color: $custom-gray;
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-custom-gray:hover {
+  color: $custom-gray-dark;
+  background-color: transparent;
+  border-color: transparent;
 }
 
-
+.navbar {
+  border-bottom: 3px solid $orange-dark;
+}

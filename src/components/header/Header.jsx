@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 export default function Header(props) {
     return (
         <>
-            <Navbar bg="light" expand="lg" data-bs-theme="light">
+            <Navbar bg="light" expand="md" data-bs-theme="light">
                 <Container>
                     <Navbar.Brand href="#">
                         <img
@@ -19,8 +19,8 @@ export default function Header(props) {
                     <Navbar.Toggle aria-controls="navbar-nav" />
                     <Navbar.Collapse id="navbar-nav">
                         <Nav className="ms-auto">
-                            <Button href="#" variant="secondary" className='mx-1'>Register</Button>
-                            <Button href="#" variant="orange" className='mx-1'>Login</Button>
+                            <Button href="#" variant="custom-gray" className='mx-2'>Register</Button>
+                            <Button href="#" variant="outline-orange" className='mx-2'>Login</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

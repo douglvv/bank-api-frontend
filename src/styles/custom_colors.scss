@@ -1,10 +1,7 @@
-
-//   --gray: #646C69;
-//   --white: #f8f9fa;
-//   --orange: #FE670F;
-//   --orangeDark: #B74401;
-
 $orange: #FE670F !default;
-$orange-dark: #B74401 !default;
+$orange-dark: #DF5301 !default;
 $custom-gray: #646C69 !default;
+$custom-gray-dark: #454A48 !default;
+$body-color: $custom-gray-dark !default;
+$body-bg: $orange !default;
 

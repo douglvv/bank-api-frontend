@@ -1,7 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import styles from './styles.module.css'
+import Button from 'react-bootstrap/Button'
+import styles from './styles.module.css';
 
 export default function Header(props) {
     return (
@@ -17,10 +18,9 @@ export default function Header(props) {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbar-nav" />
                     <Navbar.Collapse id="navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Create Account</Nav.Link>
-                            <Nav.Link href='#'>Login</Nav.Link>                            
+                        <Nav className="ms-auto">
+                            <Button href="#" variant="secondary" className='mx-1'>Register</Button>
+                            <Button href="#" variant="orange" className='mx-1'>Login</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -28,4 +28,3 @@ export default function Header(props) {
         </>
     )
 }
-

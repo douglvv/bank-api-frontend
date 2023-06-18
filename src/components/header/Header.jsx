@@ -7,9 +7,9 @@ import styles from './styles.module.css';
 export default function Header(props) {
     return (
         <>
-            <Navbar bg="light" expand="md" data-bs-theme="light">
+            <Navbar bg="light" expand="lg" data-bs-theme="light">
                 <Container>
-                    <Navbar.Brand href="#">
+                    <Navbar.Brand href="/">
                         <img
                             src="/img/logo.png"
                             className={`${styles.imgBrand} d-inline-block align-top`}
@@ -19,8 +19,8 @@ export default function Header(props) {
                     <Navbar.Toggle aria-controls="navbar-nav" />
                     <Navbar.Collapse id="navbar-nav">
                         <Nav className="ms-auto">
-                            <Button href="#" variant="custom-gray" className='mx-2'>Register</Button>
-                            <Button href="#" variant="outline-orange" className='mx-2'>Login</Button>
+                            <Button href="/register" variant="custom-gray" className='mx-2'>Register</Button>
+                            <Button href="/login" variant="outline-orange" className='mx-2'>Login</Button>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

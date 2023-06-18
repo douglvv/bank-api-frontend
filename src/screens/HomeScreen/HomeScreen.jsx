@@ -1,22 +1,24 @@
 import React from 'react';
 import Header from '../../components/header/Header';
-import Container from 'react-bootstrap/Container';
-import Row  from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
+import { Container, Button, Row, Col, Image } from 'react-bootstrap'
+import homePageImg from '/img/home-page-img.png'
+import styles from './styles.module.css'
 
 export default function HomeScreen(props) {
     return (
         <>
             <Header />
-            <Container fluid="md" cl>
-                <Row className='d-flex justify-content-center align-items-center'>
-                    <Col md={5}>
-                        <h1 className='fs-2 text-light'>Lorem ipsum dolor sit amet consectetur</h1>
-                        <h4 className='fs-5 text-light'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis vitae, delectus nostrum nam non eveniet aliquid earum itaque, officia doloremque voluptatibus aperiam deleniti culpa id rem quos, ipsa ex quasi.</h4>
+            <Container>
+                <Row className='d-flex justify-content-center align-items-center m-3'>
+                    <Col lg={5}>
+                        <h1 className='fs-3 text-light mb-3'>Discover a Better Banking Experience</h1>
+                        <h4 className='fs-5 text-light mb-3'>Experience the convenience, security, and personalized service of our bank. Join today and start managing your finances with ease.</h4>
+                        <div className="text-center">
+                            <Button variant="secondary" size="lg" as='a' href='/register' >Create an account</Button>
+                        </div>
                     </Col>
-                    <Col md={7}>
-                        
+                    <Col lg={7}>
+                        <Image src={homePageImg} className={styles.dropShadow} rounded fluid />
                     </Col>
                 </Row>
             </Container>

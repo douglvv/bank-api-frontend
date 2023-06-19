@@ -1,0 +1,10 @@
+.cardImg {
+    max-width: 150px;
+    min-width: 37.5px;
+    height: auto;
+}
+
+.borderGrayDark {
+    border-color: #454A48;
+}
+

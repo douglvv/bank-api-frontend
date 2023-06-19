@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button'
 import styles from './styles.module.css';
+import imgLogo from '/img/logo.png'
 
 export default function Header(props) {
     return (
@@ -11,7 +12,7 @@ export default function Header(props) {
                 <Container>
                     <Navbar.Brand href="/">
                         <img
-                            src="/img/logo.png"
+                            src={imgLogo}
                             className={`${styles.imgBrand} d-inline-block align-top`}
                             alt="Logo"
                         />

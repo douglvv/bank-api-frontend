@@ -35,13 +35,13 @@ $custom-colors: (
   background-color: transparent;
   border-color: transparent;
 }
-.btn-custom-gray:hover {
+.btn-custom-gray:hover:active {
   color: $custom-gray-dark;
   background-color: transparent;
   border-color: transparent;
 }
 
-// Navbar
+//  Navbar
 .navbar {
-  border-bottom: 3px solid $orange-dark;
+  border-bottom: 2px solid $custom-gray;
 }

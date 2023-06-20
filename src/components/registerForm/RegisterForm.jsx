@@ -28,7 +28,7 @@ export default function RegisterForm(props) {
         } catch (error) {
             console.log(error)
             setError(true);
-            setErrorMessage(error.message);            
+            setErrorMessage(error.response.data);            
         }
     }
 

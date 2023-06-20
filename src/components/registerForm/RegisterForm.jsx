@@ -1,21 +1,49 @@
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { React, useState } from "react";
+import { Button, Container, Form } from "react-bootstrap";
+import AccountService from '../../services/accounts';
+import { useNavigate } from "react-router-dom";
 
 
 export default function RegisterForm(props) {
+    const [name, setName] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [password, setPassword] = useState("");
+    const [redirectToLogin, setRedirectToLogin] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
+
+    if(redirectToLogin) return navigate('/login')
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        try {
+            const account = await AccountService.register({
+                name: name,
+                cpf: cpf,
+                password: password
+            });
+            setRedirectToLogin(true);
+        } catch (error) {
+            console.log(error)
+            setError(true);
+            setErrorMessage(error.message);            
+        }
+    }
+
     return (
         <>
             <Container fluid="lg">
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                             type="text"
-                            name="cpf"
+                            name="name"
                             placeholder="Enter name"
-                            value={""}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             required
                         />
                     </Form.Group>
@@ -26,7 +54,8 @@ export default function RegisterForm(props) {
                             type="text"
                             name="cpf"
                             placeholder="Enter CPF"
-                            value={""}
+                            value={cpf}
+                            onChange={(e) => setCpf(e.target.value)}
                             required
                         />
                     </Form.Group>
@@ -37,14 +66,18 @@ export default function RegisterForm(props) {
                             type="password"
                             name="password"
                             placeholder="Password"
-                            value={""}
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
                             required
                         />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Register
-                    </Button>
+                    <div className="d-flex justify-content-center align-items-center">
+                        <Button className="mb-3" variant="primary" type="submit">
+                            Register
+                        </Button>
+                    </div>
+                    {error && <p className="text-danger small">{errorMessage}</p>}
                 </Form>
             </Container>
         </>

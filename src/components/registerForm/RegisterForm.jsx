@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import AccountService from '../../services/accounts';
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,11 @@ export default function RegisterForm(props) {
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
-    if(redirectToLogin) return navigate('/login')
+    useEffect(() => {
+        if (redirectToLogin) {
+            navigate('/login');
+        }
+    }, [redirectToLogin, navigate]);
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -26,9 +30,10 @@ export default function RegisterForm(props) {
             });
             setRedirectToLogin(true);
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             setError(true);
-            setErrorMessage(error.response.data);            
+            if (error.response && error.response.data) setErrorMessage(error.response.data);
+            else setErrorMessage(error.message);
         }
     }
 

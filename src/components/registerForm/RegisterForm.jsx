@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { Button, Container, Form, Stack } from "react-bootstrap";
-import AccountService from '../../services/accounts';
 import { Link, useNavigate } from "react-router-dom";
+import AccountService from '../../services/accounts';
+import Loader from '../loader/Loader'
 
 
 export default function RegisterForm(props) {
@@ -11,6 +12,7 @@ export default function RegisterForm(props) {
     const [redirectToLogin, setRedirectToLogin] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,6 +25,7 @@ export default function RegisterForm(props) {
         event.preventDefault();
 
         try {
+            setLoading(true);
             const account = await AccountService.register({
                 name: name,
                 cpf: cpf,
@@ -34,6 +37,9 @@ export default function RegisterForm(props) {
             setError(true);
             if (error.response && error.response.data) setErrorMessage(error.response.data);
             else setErrorMessage(error.message);
+        }
+        finally {
+            setLoading(false);
         }
     }
 
@@ -88,6 +94,7 @@ export default function RegisterForm(props) {
                         </Stack>
                     </div>
                     {error && <p className="text-danger small">{errorMessage}</p>}
+                    {loading && <Loader />}
                 </Form>
             </Container>
         </>

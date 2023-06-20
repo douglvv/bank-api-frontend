@@ -16,7 +16,7 @@ export default function LoginForm(props) {
 
     useEffect(() => {
         if (redirectToAccount) {
-            navigate('/');
+            navigate('/account');
         }
     }, [redirectToAccount, navigate]);
 
@@ -25,15 +25,14 @@ export default function LoginForm(props) {
 
         try {
             setLoading(true);
-            const account = await AccountService.register({
-                name: name,
+            const account = await AccountService.login({
                 cpf: cpf,
                 password: password
             });
             setRedirectToAccount(true);
         } catch (error) {
             setError(true);
-            if (error.response && error.response.data) setErrorMessage(error.response.data);
+            if (error.response && error.response.data) setErrorMessage(error.response.data.error);
             else setErrorMessage(error.message);
         }
         finally {

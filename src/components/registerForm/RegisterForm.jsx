@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Stack } from "react-bootstrap";
 import AccountService from '../../services/accounts';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function RegisterForm(props) {
@@ -78,9 +78,14 @@ export default function RegisterForm(props) {
                     </Form.Group>
 
                     <div className="d-flex justify-content-center align-items-center">
-                        <Button className="mb-3" variant="primary" type="submit">
-                            Register
-                        </Button>
+                        <Stack gap={2}>
+                            <Button className="w-100" variant="orange" type="submit">
+                                Register
+                            </Button>
+                            <p className="col text-center small">
+                                Already registered? <Link to="/login">Log-in</Link>
+                            </p>
+                        </Stack>
                     </div>
                     {error && <p className="text-danger small">{errorMessage}</p>}
                 </Form>

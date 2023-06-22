@@ -1,5 +1,5 @@
 import Api from "./api";
-import { loginSuccess } from '../auth/authSlice';
+import { loginSuccess, logout } from '../auth/authSlice';
 import store from '../store/store';
 import jwtDecode from "jwt-decode";
 

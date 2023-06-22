@@ -2,8 +2,16 @@ import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import styles from './styles.module.css';
 import imgLogo from '/img/logo.png'
 import { BsPersonFillGear, BsBoxArrowRight, BsPersonCircle } from "react-icons/bs";
+import { useDispatch } from 'react-redux';
+import { logout } from '../../auth/authSlice';
 
 export default function Header(props) {
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+      };
+
     return (
         <>
             <Navbar bg="light" expand="sm" data-bs-theme="light">
@@ -27,7 +35,7 @@ export default function Header(props) {
                                 }
                             >
                                 <NavDropdown.Item href="#"><BsPersonFillGear /> Edit account</NavDropdown.Item>
-                                <NavDropdown.Item href="#"><BsBoxArrowRight /> Logout</NavDropdown.Item>
+                                <NavDropdown.Item as={Button} onClick={handleLogout}><BsBoxArrowRight /> Logout</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

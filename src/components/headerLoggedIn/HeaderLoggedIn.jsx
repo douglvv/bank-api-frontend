@@ -6,7 +6,7 @@ import { BsPersonFillGear, BsBoxArrowRight, BsPersonCircle } from "react-icons/b
 export default function Header(props) {
     return (
         <>
-            <Navbar bg="light" expand="lg" data-bs-theme="light">
+            <Navbar bg="light" expand="sm" data-bs-theme="light">
                 <Container>
                     <Navbar.Brand href="/account">
                         <img

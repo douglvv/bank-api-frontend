@@ -42,7 +42,7 @@ export default function LoginForm(props) {
 
     return (
         <>
-            <Container fluid="lg">
+            <Container fluid="sm">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="cpf">
                         <Form.Label>CPF</Form.Label>

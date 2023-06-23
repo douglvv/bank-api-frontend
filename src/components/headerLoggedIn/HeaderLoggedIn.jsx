@@ -1,7 +1,8 @@
 import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import styles from './styles.module.css';
 import imgLogo from '/img/logo.png'
-import { BsPersonFillGear, BsBoxArrowRight, BsPersonCircle } from "react-icons/bs";
+import { BsPersonFillGear, BsBoxArrowRight, BsPersonCircle, BsBoxArrowInDownRight, BsWallet2 } from "react-icons/bs";
+import { BiMoneyWithdraw, BiTransfer } from 'react-icons/bi'
 
 export default function Header(props) {
     return (
@@ -16,8 +17,24 @@ export default function Header(props) {
                         />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbar-nav" />
-                    <Navbar.Collapse className="justify-content-end" id="navbar-nav">
-                        <Nav>
+                    <Navbar.Collapse
+                        className="justify-content-between"
+                        id="navbar-nav"
+                    >
+                        <Nav variant='underline'>
+                            <Nav.Link href="#">
+                                <BsWallet2 /> Account
+                            </Nav.Link>
+                            <Nav.Link href="#">
+                                <BsBoxArrowInDownRight /> Deposit
+                            </Nav.Link>
+                            <Nav.Link href="#">
+                                <BiMoneyWithdraw /> Withdraw
+                            </Nav.Link>
+                            <Nav.Link href="#">
+                                <BiTransfer /> Transfer
+                            </Nav.Link>
+
                             <NavDropdown
                                 menuVariant="light"
                                 title={
@@ -26,8 +43,12 @@ export default function Header(props) {
                                     </>
                                 }
                             >
-                                <NavDropdown.Item href="#"><BsPersonFillGear /> Edit account</NavDropdown.Item>
-                                <NavDropdown.Item href="#"><BsBoxArrowRight /> Logout</NavDropdown.Item>
+                                <NavDropdown.Item href="#">
+                                    <BsPersonFillGear /> Settings
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#">
+                                    <BsBoxArrowRight /> Logout
+                                </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

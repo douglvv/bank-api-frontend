@@ -28,8 +28,13 @@ const authSlice = createSlice({
             localStorage.setItem('token', null);
             localStorage.setItem('account', null);
         },
+        showAccount: (state, action) => {
+            state.account = action.payload.account;
+
+            localStorage.setItem('account', JSON.stringify(action.payload.account));
+        }
     },
 });
 
-export const {loginSuccess, logout} = authSlice.actions;
+export const {loginSuccess, logout, showAccount} = authSlice.actions;
 export default authSlice.reducer;

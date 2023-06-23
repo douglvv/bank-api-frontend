@@ -1,5 +1,5 @@
 import Api from "./api";
-import { loginSuccess } from '../auth/authSlice';
+import { loginSuccess, showAccount} from '../auth/authSlice';
 import store from '../store/store';
 import jwtDecode from "jwt-decode";
 
@@ -13,6 +13,18 @@ const AccountService = {
         const account = decoded.account;        
 
         store.dispatch(loginSuccess({account: account, token: token})); // Faz o dispatch da conta e token para a store do redux;
+    },
+
+    showAccount: async (accountId) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.get(`/account/${accountId}`, {
+            headers: { Authorization: token}
+        });
+
+        const updatedAccount = await response.data;
+
+        store.dispatch(showAccount({account: updatedAccount}));
     },
 }
 

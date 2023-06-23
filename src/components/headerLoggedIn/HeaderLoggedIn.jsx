@@ -40,7 +40,7 @@ export default function Header(props) {
                                 <BiMoneyWithdraw /> Withdraw
                             </Nav.Link>
                             <Nav.Link href="#">
-                                <BiTransfeBiTransfer /> Transfer
+                                <BiTransfer /> Transfer
                             </Nav.Link>
 
                             <NavDropdown
@@ -54,7 +54,7 @@ export default function Header(props) {
                                 <NavDropdown.Item href="#">
                                     <BsPersonFillGear /> Settings
                                 </NavDropdown.Item>
-                                <NavDropdown.Item href="#">
+                                <NavDropdown.Item as={Button} onClick={handleLogout} >
                                     <BsBoxArrowRight /> Logout
                                 </NavDropdown.Item>
                             </NavDropdown>

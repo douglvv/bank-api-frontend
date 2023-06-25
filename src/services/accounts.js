@@ -1,18 +1,24 @@
 import Api from "./api";
-import { loginSuccess, showAccount} from '../auth/authSlice';
+import { loginSuccess, updateAccount} from '../auth/authSlice';
 import store from '../store/store';
 import jwtDecode from "jwt-decode";
 
 const AccountService = {
-    register: (params) => Api.post('/account/create', params),
+    register: async (params) => {
+        const response = await Api.post('/account/create', params)
+        
+        return response
+    },
     
     login: async (params) => {
         const response = await Api.post('/account/login', params);
         const token = response.data.token;
         const decoded = await jwtDecode(JSON.stringify(token));
-        const account = decoded.account;        
-
+        const account = decoded.account;
+        
         store.dispatch(loginSuccess({account: account, token: token})); // Faz o dispatch da conta e token para a store do redux;
+
+        return response;
     },
 
     showAccount: async (accountId) => {
@@ -22,9 +28,32 @@ const AccountService = {
             headers: { Authorization: token}
         });
 
-        const updatedAccount = await response.data;
+        const account = await response.data;
 
-        store.dispatch(showAccount({account: updatedAccount}));
+        store.dispatch(updateAccount({account: account}));
+        
+        return response;
+    },
+    
+    /**
+     * Envia a requisição para editar os dados da conta.
+     * 
+     * @param {*} accountId 
+     * @param {*} formData: { name: "", cpf: "", password: "" }
+     * @returns retorna a resposta da requisição
+     */
+    editAccount: async (accountId, formData) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.post(`/account/${accountId}/edit`, formData, {
+            headers: { Authorization: token}
+        });
+
+        const account = await response.data;
+
+        store.dispatch(updateAccount({account: account}));
+
+        return response;
     },
 }
 

@@ -1,6 +1,6 @@
 import { React, useEffect } from "react";
 import HeaderLoggedIn from '../../components/headerLoggedIn/HeaderLoggedIn';
-import ShowAccount from "../../components/account/ShowAccount/ShowAccount";
+import ShowAccount from '../../components/account/ShowAccount/ShowAccount'
 import { useSelector } from "react-redux";
 import AccountService from "../../services/accounts";
 

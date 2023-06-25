@@ -11,7 +11,7 @@ export default function Header(props) {
 
     const handleLogout = () => {
         dispatch(logout());
-      };
+    };
 
     return (
         <>

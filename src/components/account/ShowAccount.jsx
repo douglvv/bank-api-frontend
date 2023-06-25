@@ -1,10 +1,10 @@
-import { Container, Card, Row, Col, ListGroup, Badge } from "react-bootstrap";
+import { Container, Card, Row, Col, ListGroup, Badge, Button, Stack } from "react-bootstrap";
 
 export default function ShowAccount(props) {
     return (
         <>
-            <Container fluid='sm'>
-                <h1 className="mx-3">Account</h1>
+            <Container className="bg-secondary vh-100" fluid='sm'>
+                <h3 className="mx-3">Account</h3>
                 <Row className="m-3">
                     <Col sm={4}>
                         <Card className="mb-3">
@@ -29,6 +29,18 @@ export default function ShowAccount(props) {
                             </Card.Body>
                         </Card>
                     </Col>
+                </Row>
+                <hr />
+                <h3>Transactions</h3>
+                <Row className="m-3 vw-100">
+                    {/* <Col sm> */}
+                        <Stack direction="horizontal" gap={3}>
+                            <Button variant="orange" size="lg">Check Statement</Button>
+                            <Button variant="orange" size="lg">Withdraw</Button>
+                            <Button variant="orange" size="lg">Deposit</Button>
+                            <Button variant="orange" size="lg">Transfer</Button>
+                        </Stack>
+                    {/* </Col> */}
                 </Row>
             </Container>
         </>

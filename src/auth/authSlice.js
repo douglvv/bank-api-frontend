@@ -25,8 +25,8 @@ const authSlice = createSlice({
             state.token = null;
             state.account = null;
 
-            localStorage.setItem('token', null);
-            localStorage.setItem('account', null);
+            localStorage.removeItem('token');
+            localStorage.removeItem('account');
         },
         showAccount: (state, action) => {
             state.account = action.payload.account;

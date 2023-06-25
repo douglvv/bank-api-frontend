@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Store as Notification } from 'react-notifications-component';
 import AccountService from '../../../services/accounts';
 import Loader from '../../loader/Loader'
 
@@ -9,6 +10,7 @@ export default function EditAccountForm(props) {
     const [cpf, setCpf] = useState();
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [success, setSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -19,7 +21,20 @@ export default function EditAccountForm(props) {
             setLoading(true);
             const formData = { name: name, cpf: cpf };
             const response = await AccountService.editAccount(props.account._id, formData);
-            if (response.status === 200) console.log("deu boa");
+            if (response.status === 200) {
+                Notification.addNotification({
+                    title: "Success",
+                    message: "Account updated successfuly!",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__fadeIn"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 3000,
+                    }
+                });
+            }
 
         } catch (error) {
             setError(true);

@@ -30,7 +30,7 @@ export default function Header(props) {
                         id="navbar-nav"
                     >
                         <Nav variant='underline'>
-                            <Nav.Link href="#">
+                            <Nav.Link href="/account">
                                 <BsWallet2 /> Account
                             </Nav.Link>
                             <Nav.Link href="#">
@@ -47,11 +47,11 @@ export default function Header(props) {
                                 menuVariant="light"
                                 title={
                                     <>
-                                        <BsPersonCircle /> {props.accountName}
+                                        <BsPersonCircle /> {props.account.name}
                                     </>
                                 }
                             >
-                                <NavDropdown.Item href="#">
+                                <NavDropdown.Item href="/account/edit">
                                     <BsPersonFillGear /> Settings
                                 </NavDropdown.Item>
                                 <NavDropdown.Item as={Button} onClick={handleLogout} >

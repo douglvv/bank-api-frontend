@@ -38,8 +38,8 @@ const AccountService = {
     /**
      * Envia a requisição para editar os dados da conta.
      * 
-     * @param {*} accountId 
-     * @param {*} formData: { name: "", cpf: "", password: "" }
+     * @param {Int} accountId 
+     * @param {{ name: String, cpf: String }} formData
      * @returns retorna a resposta da requisição
      */
     editAccount: async (accountId, formData) => {
@@ -55,6 +55,26 @@ const AccountService = {
 
         return response;
     },
+
+    /**
+     * Envia a requisição para alterar a conta
+     * @param {Int} accountId 
+     * @param {{currentPassword: String, newPassword: String}} formData 
+     * @returns retorna a resposta da requisição
+     */
+    changePassword: async (accountId, formData) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.post(`account/${accountId}/changePassword`, formData, {
+            headers: { Authorization: token }
+        });
+
+        const account = await response.data;
+
+        store.dispatch(updateAccount({account: account}));
+
+        return response;
+    }
 }
 
 export default AccountService;

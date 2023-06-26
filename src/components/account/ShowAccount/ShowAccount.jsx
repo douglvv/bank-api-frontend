@@ -28,20 +28,18 @@ export default function ShowAccount(props) {
                                 <Card.Title>
                                     Account <Badge bg="orange-dark" className='bagde-custom' pill='false'>{props.account._id}</Badge>
                                 </Card.Title>
-                                <Card.Text className="text-muted">
-                                    <ListGroup>
-                                        <ListGroup.Item>{props.account.name}</ListGroup.Item>
-                                        <ListGroup.Item>{props.account.cpf}</ListGroup.Item>
-                                    </ListGroup>
-                                </Card.Text>
+                                <ListGroup>
+                                    <ListGroup.Item>{props.account.name}</ListGroup.Item>
+                                    <ListGroup.Item>{props.account.cpf}</ListGroup.Item>
+                                </ListGroup>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
                 <hr />
-                {/* <h3>Transactions</h3> */}
+                <h3>Transactions</h3>
                 <Row className="m-3 vw-100">
-            
+
                 </Row>
             </Container>
         </>

@@ -1,12 +1,12 @@
 import { React, useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Store as Notification } from 'react-notifications-component';
 import AccountService from '../../../services/accounts';
 import Loader from '../../loader/Loader'
 
 export default function EditAccountForm(props) {
-    const [name, setName] = useState();
-    const [cpf, setCpf] = useState();
+    const [name, setName] = useState("");
+    const [cpf, setCpf] = useState("");
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ export default function EditAccountForm(props) {
     return (
         <>
             <Container fluid="sm">
-            <h4 className="text-center">Edit Personal Info</h4>
+                <h4 className="text-center">Edit Personal Info</h4>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Name</Form.Label>
@@ -58,17 +58,29 @@ export default function EditAccountForm(props) {
                             onChange={(e) => setName(e.target.value)}
                         />
                     </Form.Group>
+                    <Row>
+                        <Form.Group as={Col} className="mb-3" controlId="cpf">
+                            <Form.Label>CPF</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="cpf"
+                                placeholder={props.account.cpf}
+                                value={cpf}
+                                onChange={(e) => setCpf(e.target.value)}
+                            />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="cpf">
-                        <Form.Label>CPF</Form.Label>
-                        <Form.Control
-                            type="text"
-                            name="cpf"
-                            placeholder={props.account.cpf}
-                            value={cpf}
-                            onChange={(e) => setCpf(e.target.value)}
-                        />
-                    </Form.Group>
+                        <Form.Group as={Col} className="mb-3" controlId="id">
+                            <Form.Label>Account Number</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="id"
+                                value={props.account._id}
+                                disabled
+                            />
+                        </Form.Group>
+                    </Row>
+
 
                     <div className="d-flex justify-content-center align-items-center">
                         <Button className="w-100" variant="orange" type="submit">

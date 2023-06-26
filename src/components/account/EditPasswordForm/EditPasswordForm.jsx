@@ -15,16 +15,17 @@ export default function EditPasswordForm(props) {
 
     useEffect(() => {
         if (newPassword !== newPasswordRepeat) setIsInvalid(true);
-        if (newPassword === newPasswordRepeat) setIsInvalid(false);       
+        if (newPassword === newPasswordRepeat) setIsInvalid(false);
+
     }, [newPassword, newPasswordRepeat])
 
     async function handleSubmit(event) {
         event.preventDefault();
-       
+
         try {
             setLoading(true);
 
-            const formData = { currentPassword: currentPassword , newPassword: newPassword};
+            const formData = { currentPassword: currentPassword, newPassword: newPassword };
             const response = await AccountService.changePassword(props.account._id, formData);
             if (response.status === 200) {
                 Notification.addNotification({
@@ -43,7 +44,7 @@ export default function EditPasswordForm(props) {
 
         } catch (error) {
             setError(true);
-            setErrorMessage(error.response.data.message);
+            setErrorMessage(error.response.data);
         }
         finally {
             setLoading(false);
@@ -68,7 +69,7 @@ export default function EditPasswordForm(props) {
                     </Form.Group>
 
                     <Row>
-                        <Form.Group as={Col} className="mb-3" controlId="newPassword">
+                        <Form.Group as={Col} sm={true} className="mb-3" controlId="newPassword">
                             <Form.Label>New Password *</Form.Label>
                             <Form.Control
                                 type="password"
@@ -84,7 +85,7 @@ export default function EditPasswordForm(props) {
                             </Form.Control.Feedback>
                         </Form.Group>
 
-                        <Form.Group as={Col} className="mb-3" controlId="newPasswordRepeat">
+                        <Form.Group as={Col} sm={true} className="mb-3" controlId="newPasswordRepeat">
                             <Form.Label>New Password *</Form.Label>
                             <Form.Control
                                 type="password"

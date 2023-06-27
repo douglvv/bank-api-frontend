@@ -11,7 +11,7 @@ export default function ShowStatement(props) {
 
     useEffect(() => {
         fetchStatement();
-    }, []); // Colocar account para update infinito
+    }, [props.account]);
 
     return (
         <>

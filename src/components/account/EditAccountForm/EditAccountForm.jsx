@@ -35,8 +35,7 @@ export default function EditAccountForm(props) {
 
         } catch (error) {
             setError(true);
-            if (error.response && error.response.data) setErrorMessage(error.response.data.error);
-            else setErrorMessage(error.message);
+            setErrorMessage(error.response.data);
         }
         finally {
             setLoading(false);
@@ -48,18 +47,17 @@ export default function EditAccountForm(props) {
             <Container fluid="sm">
                 <h4 className="text-center">Edit Personal Info</h4>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Name</Form.Label>
+                    <Form.Group className="mb-3" controlId="id">
+                        <Form.Label>Account Number</Form.Label>
                         <Form.Control
                             type="text"
-                            name="name"
-                            placeholder={props.account.name}
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            name="id"
+                            value={props.account._id}
+                            capture
                         />
                     </Form.Group>
                     <Row>
-                        <Form.Group as={Col} className="mb-3" controlId="cpf">
+                        <Form.Group as={Col} sm={true} className="mb-3" controlId="cpf">
                             <Form.Label>CPF</Form.Label>
                             <Form.Control
                                 type="text"
@@ -70,13 +68,14 @@ export default function EditAccountForm(props) {
                             />
                         </Form.Group>
 
-                        <Form.Group as={Col} className="mb-3" controlId="id">
-                            <Form.Label>Account Number</Form.Label>
+                        <Form.Group as={Col} sm={true} className="mb-3" controlId="name">
+                            <Form.Label>Name</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="id"
-                                value={props.account._id}
-                                disabled
+                                name="name"
+                                placeholder={props.account.name}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
                     </Row>

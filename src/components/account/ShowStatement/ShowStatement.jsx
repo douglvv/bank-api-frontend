@@ -22,8 +22,8 @@ export default function ShowStatement(props) {
                 {statement.map((transaction) => (
                     <>
                         <Row as={"div"}>
-                            <Col sm={16} className={`${styles.wrapper}`}>
-                                <Card key={transaction._id}>
+                            <Col sm={16} >
+                                <Card className={`${styles.wrapper}`} key={transaction._id}>
                                     <Card.Header>Transaction id: {transaction._id}</Card.Header>
                                     <Card.Body>
                                         <ListGroup variant="flush">

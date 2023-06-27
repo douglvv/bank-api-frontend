@@ -1,4 +1,4 @@
-import { Container, Card, Row, Col, ListGroup, Badge } from "react-bootstrap";
+import { Container, Card, Row, Col, Button} from "react-bootstrap";
 import { useDispatch } from 'react-redux';
 import logout from '../../../auth/authSlice'
 
@@ -11,8 +11,8 @@ export default function ShowAccount(props) {
 
     return (
         <>
-            <Container className="bg-secondary vh-100" fluid='sm'>
-                <h3 className="mx-3">Account</h3>
+            <Container fluid='sm'>
+                <h3 className="mx-3">ACCOUNT {props.account._id}</h3>
                 <Row className="m-3">
                     <Col sm={4}>
                         <Card className="mb-3">
@@ -22,24 +22,30 @@ export default function ShowAccount(props) {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col sm={8}>
-                        <Card className="mb-3">
-                            <Card.Body>
-                                <Card.Title>
-                                    Account <Badge bg="orange-dark" className='bagde-custom' pill='false'>{props.account._id}</Badge>
-                                </Card.Title>
-                                <ListGroup>
-                                    <ListGroup.Item>{props.account.name}</ListGroup.Item>
-                                    <ListGroup.Item>{props.account.cpf}</ListGroup.Item>
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </Col>
                 </Row>
                 <hr />
-                <h3>Transactions</h3>
-                <Row className="m-3 vw-100">
-
+                <h3 className="mx-3">Actions</h3>
+                <Row className="m-3 d-flex justify-content-center align-items-center">
+                <Col className="d-grid gap-2"sm={3}>
+                    <Button lg href="/account/statement">
+                        Statement
+                    </Button>
+                </Col>
+                <Col className="d-grid gap-2"sm={3}>
+                    <Button lg>
+                        Saque
+                    </Button>
+                </Col>
+                <Col className="d-grid gap-2"sm={3}>
+                    <Button lg>
+                        Depósito
+                    </Button>
+                </Col>
+                <Col className="d-grid gap-2"sm={3}>
+                    <Button lg>
+                        Transferência
+                    </Button>
+                </Col>
                 </Row>
             </Container>
         </>

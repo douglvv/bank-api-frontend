@@ -74,6 +74,24 @@ const AccountService = {
         store.dispatch(updateAccount({account: account}));
 
         return response;
+    },
+
+
+    /**
+     * Envia a requisição para mostrar o extrato da conta
+     * @param {Int} accountId 
+     * @returns um array de objetos com as transações da conta
+     */
+    showStatement: async (accountId) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.get(`/account/${accountId}/statement`, {
+            headers: { Authorization: token}
+        });
+
+        const statement = await response.data;
+
+        return statement;
     }
 }
 

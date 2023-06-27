@@ -2,11 +2,11 @@ import AccountService from "../../../services/accounts";
 import { React, useEffect, useState } from "react";
 
 export default function ShowStatement(props) {
-    const [statement, setStatement] = useState("");
+    const [statement, setStatement] = useState([]);
 
     const fetchStatement = async () => {
         const statement = await AccountService.showStatement(props.account._id);
-        setStatement(JSON.stringify(statement));
+        setStatement(statement);
     };
 
     useEffect(() => {
@@ -15,10 +15,19 @@ export default function ShowStatement(props) {
 
     return (
         <>
-            <h1>Ok</h1>
-            <div>
-                <p>{statement}</p>
-            </div>
+           <>
+      <h1>Statement</h1>
+      <div>
+        {statement.map((transaction) => (
+          <div key={transaction._id}>
+            <p>Transaction id: {transaction._id}</p>
+            <p>Type: {transaction.type}</p>
+            <p>Value: {transaction.value}</p>
+            <p>Receiver: {transaction.participants.receiver.name}</p>
+          </div>
+        ))}
+      </div>
+    </>
         </>
     )
 

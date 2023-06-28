@@ -37,13 +37,13 @@ export default function ShowAccount(props) {
                     </Button>
                 </Col>
                 <Col className="d-grid gap-2"sm={3}>
-                    <Button size="lg">
-                        Depósito
+                    <Button size="lg" href="/account/deposit">
+                        Deposit
                     </Button>
                 </Col>
                 <Col className="d-grid gap-2"sm={3}>
-                    <Button size="lg">
-                        Transferência
+                    <Button size="lg" href="/account/transfer">
+                        Transfer
                     </Button>
                 </Col>
                 </Row>

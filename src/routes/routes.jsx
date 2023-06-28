@@ -7,6 +7,8 @@ import AccountScreen from "../screens/AccountScreen/AccountScreen";
 import EditAcountScreen from "../screens/EditAccountScreen/EditAccountScreen";
 import StatementScreen from "../screens/StatementScreen/StatementScreen";
 import WithdrawScreen from "../screens/WithdrawScreen/WithdrawScreen";
+import TransferScreen from "../screens/TransferScreen/TransferScreen";
+import DepositScreen from "../screens/DepositScreen/DepositScreen";
 import PrivateRoutes from "./privateRoutes";
 
 export default function AppRoutes() {
@@ -22,6 +24,8 @@ export default function AppRoutes() {
                     <Route exact path="/account/edit" Component={EditAcountScreen} />
                     <Route exact path="/account/statement" Component={StatementScreen} />
                     <Route exact path="/account/withdraw" Component={WithdrawScreen} />
+                    <Route exact path="/account/deposit" Component={DepositScreen} />
+                    <Route exact path="/account/transfer" Component={TransferScreen} />
                 </Route>
             </Routes>
         </BrowserRouter>

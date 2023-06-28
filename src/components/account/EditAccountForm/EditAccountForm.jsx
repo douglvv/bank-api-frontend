@@ -55,7 +55,7 @@ export default function EditAccountForm(props) {
                             type="text"
                             name="id"
                             value={props.account._id}
-                            capture
+                            readOnly
                         />
                     </Form.Group>
                     <Row>

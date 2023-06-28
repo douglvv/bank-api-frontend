@@ -5,8 +5,8 @@ import AccountService from "../../../services/accounts";
 import Loader from "../../loader/Loader";
 
 
-export default function WithdrawForm(props) {
-    const [withdrawValue, setWithdrawValue] = useState("");
+export default function TransferForm(props) {
+    const [depositValue, setDepositValue] = useState("");
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -17,10 +17,10 @@ export default function WithdrawForm(props) {
         try {
           setLoading(true);
           setError(false);
-          setWithdrawValue("");
+          setDepositValue("");
           
           const response = await AccountService.withdraw(props.account._id, {
-            value: withdrawValue
+            value: depositValue
         });
       
           if (response.status === 200) {
@@ -57,8 +57,8 @@ export default function WithdrawForm(props) {
                             type="text"
                             name="value"
                             placeholder="Enter value"
-                            value={withdrawValue}
-                            onChange={(e) => setWithdrawValue(e.target.value)}
+                            value={depositValue}
+                            onChange={(e) => setDepositValue(e.target.value)}
                             required
                             aria-describedby="addon"
                         />

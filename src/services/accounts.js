@@ -76,7 +76,6 @@ const AccountService = {
         return response;
     },
 
-
     /**
      * Envia a requisição para mostrar o extrato da conta
      * @param {Int} accountId 
@@ -98,6 +97,40 @@ const AccountService = {
         const token = localStorage.getItem('token');
 
         const response = await Api.post(`account/${accountId}/withdraw`, value, {
+            headers: { Authorization: token }
+        });
+
+        const account = await response.data;
+
+        store.dispatch(updateAccount({ account: account }));
+
+        return response;
+    },
+
+    deposit: async (accountId, value) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.post(`account/${accountId}/deposit`, value, {
+            headers: { Authorization: token }
+        });
+
+        const account = await response.data;
+
+        store.dispatch(updateAccount({ account: account }));
+
+        return response;
+    },
+
+    /**
+     * Envia a requisição de transferencia
+     * @param {*} accountId 
+     * @param {{idReceiver: String, value: String}} formData 
+     * @returns a resposta da requisição
+     */
+    transfer: async (accountId, formData) => {
+        const token = localStorage.getItem('token');
+
+        const response = await Api.post(`account/${accountId}/transfer`, value, {
             headers: { Authorization: token }
         });
 

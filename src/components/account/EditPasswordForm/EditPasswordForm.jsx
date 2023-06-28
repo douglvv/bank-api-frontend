@@ -24,7 +24,8 @@ export default function EditPasswordForm(props) {
 
         try {
             setLoading(true);
-
+            setError(false);
+            
             const formData = { currentPassword: currentPassword, newPassword: newPassword };
             const response = await AccountService.changePassword(props.account._id, formData);
             if (response.status === 200) {

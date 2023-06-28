@@ -5,7 +5,7 @@ import { BsPersonFillGear, BsBoxArrowRight, BsPersonCircle } from "react-icons/b
 import { useDispatch } from 'react-redux';
 import { logout } from '../../auth/authSlice';
 
-export default function Header(props) {
+export default function HeaderLoggedIn(props) {
     const dispatch = useDispatch();
 
     const handleLogout = () => {

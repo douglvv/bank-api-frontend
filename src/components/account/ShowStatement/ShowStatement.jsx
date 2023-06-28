@@ -18,24 +18,25 @@ export default function ShowStatement(props) {
     return (
         <>
             <Container fluid="sm">
-                <h4 className="text-center">Statement</h4>
-                {statement.map((transaction) => (
-                    <>
-                        <Row as={"div"}>
-                            <Col sm={16} >
-                                <Card className={`${styles.wrapper}`} key={transaction._id}>
-                                    <Card.Header>Transaction id: {transaction._id}</Card.Header>
-                                    <Card.Body>
-                                        <ListGroup variant="flush">
-                                            <ListGroup.Item>Type: {transaction.type}</ListGroup.Item>
-                                            <ListGroup.Item>Value: {transaction.value}</ListGroup.Item>
-                                            <ListGroup.Item>Receiver: {transaction.participants.receiver.name}</ListGroup.Item>
-                                        </ListGroup>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </>
+                <h3 className="text-center">Statement</h3>
+                {statement.slice().reverse().map((transaction) => (
+                    <Row as="div" key={transaction._id}>
+                        <Col sm={16}>
+                            <Card className={`${styles.wrapper}`} bg="dark" text="orange">
+                                <Card.Header className="text-light">Transaction id: {transaction._id}</Card.Header>
+                                <Card.Body>
+                                    <ListGroup horizontal="sm">
+                                        <ListGroup.Item className="customListItem">Type: {transaction.type}</ListGroup.Item>
+                                        <ListGroup.Item className="customListItem">Value: R$ {transaction.value}</ListGroup.Item>
+                                        {transaction.participants.payer && (
+                                            <ListGroup.Item className="customListItem">Payer: {transaction.participants.payer.name}</ListGroup.Item>
+                                        )}
+                                        <ListGroup.Item className="customListItem">Receiver: {transaction.participants.receiver.name}</ListGroup.Item>
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
                 ))}
 
             </Container>

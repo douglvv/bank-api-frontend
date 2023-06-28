@@ -16,6 +16,8 @@ export default function EditAccountForm(props) {
 
         try {
             setLoading(true);
+            setError(false);
+            
             const formData = { name: name, cpf: cpf };
             const response = await AccountService.editAccount(props.account._id, formData);
             if (response.status === 200) {

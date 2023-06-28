@@ -1,6 +1,7 @@
 import { Container, Card, Row, Col, Button} from "react-bootstrap";
 import { useDispatch } from 'react-redux';
 import logout from '../../../auth/authSlice'
+import AccountBalanceCard from "../AccountBalanceCard/AccountBalanceCard";
 
 export default function ShowAccount(props) {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function ShowAccount(props) {
     return (
         <>
             <Container fluid='sm'>
-                <h3 className="mx-3">Account: {props.account._id}</h3>
+                {/* <h3 className="mx-3">Account: {props.account._id}</h3>
                 <Row className="m-3">
                     <Col sm={4}>
                         <Card className="mb-3">
@@ -22,7 +23,8 @@ export default function ShowAccount(props) {
                             </Card.Body>
                         </Card>
                     </Col>
-                </Row>
+                </Row> */}
+                <AccountBalanceCard account={props.account} />
                 <hr />
                 <h3 className="mx-3">Actions</h3>
                 <Row className="m-3 d-flex justify-content-center align-items-center">

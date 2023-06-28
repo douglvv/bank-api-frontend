@@ -2,4 +2,10 @@
     max-width: 150px;
     min-width: 37.5px;
     height: auto;
+    filter: drop-shadow(16px 16px 20px #000) contrast(150%);
+}
+
+.navLoggedIn {
+  background-color: #DF5301;
+  color: white;
 }

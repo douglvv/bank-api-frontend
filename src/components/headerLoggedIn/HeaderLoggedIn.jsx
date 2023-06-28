@@ -14,7 +14,7 @@ export default function HeaderLoggedIn(props) {
 
     return (
         <>
-            <Navbar bg="light" expand="sm" data-bs-theme="light">
+            <Navbar bg="dark" expand="sm" data-bs-theme="dark">
                 <Container>
                     <Navbar.Brand href="/account">
                         <img

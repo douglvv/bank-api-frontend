@@ -14,7 +14,7 @@ export default function HomeScreen(props) {
                         <h1 className='fs-3 text-light mb-3'>Discover a Better Banking Experience</h1>
                         <h4 className='fs-5 text-light mb-3'>Experience the convenience, security, and personalized service of our bank. Join today and start managing your finances with ease.</h4>
                         <div className="text-center">
-                            <Button variant="secondary" size="lg" as='a' href='/register' >Create an account</Button>
+                            <Button variant="orange" size="lg" as='a' href='/register' >Create an account</Button>
                         </div>
                     </Col>
                     <Col lg={7}>

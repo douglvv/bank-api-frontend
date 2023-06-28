@@ -29,10 +29,10 @@ export default function EditAccount(props) {
         <>
             <Container fluid="sm" className="d-flex justify-content-center align-items-center">
 
-                <Row as={'div'} className={`m-3 ${styles.wrapper}`}>
+                <Row as={'div'} className={`m-3 wrapperAccount`}>
                     <h4 className="text-center">Account Settings</h4>
 
-                    <Col sm={4} className={`${styles.wrapperNav} bg-dark text-white p-3`}>
+                    <Col sm={4} className={`wrapperNav bg-dark text-white p-3`}>
                         <h5 className="text-center">{props.account.name}</h5>
 
                         <div className="d-grid gap-2">
@@ -47,7 +47,7 @@ export default function EditAccount(props) {
                             </Button>
                         </div>
                     </Col>
-                    <Col sm={8} className={`${styles.wrapperContent} bg-light text-orange p-3`}>
+                    <Col sm={8} className={`wrapperContent bg-light text-orange p-3`}>
                         {renderContent()}
                     </Col>
                 </Row>

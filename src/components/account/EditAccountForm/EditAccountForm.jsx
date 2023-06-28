@@ -5,8 +5,8 @@ import AccountService from '../../../services/accounts';
 import Loader from '../../loader/Loader'
 
 export default function EditAccountForm(props) {
-    const [name, setName] = useState("");
-    const [cpf, setCpf] = useState("");
+    const [name, setName] = useState(props.account.name);
+    const [cpf, setCpf] = useState(props.account.cpf);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -67,6 +67,7 @@ export default function EditAccountForm(props) {
                                 placeholder={props.account.cpf}
                                 value={cpf}
                                 onChange={(e) => setCpf(e.target.value)}
+                                required
                             />
                         </Form.Group>
 
@@ -78,6 +79,7 @@ export default function EditAccountForm(props) {
                                 placeholder={props.account.name}
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                required
                             />
                         </Form.Group>
                     </Row>

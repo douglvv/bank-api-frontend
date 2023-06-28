@@ -17,7 +17,7 @@ export default function TransferScreen(props) {
                     <Col lg={3}>
                         <Card bg='light' className='align-items-center'>
                             <Card.Img variant="top" src={imgLogo} as={'img'} className={styles.cardImg} />
-                            <Card.Subtitle className="mb-2 text-muted">Withdraw</Card.Subtitle>
+                            <Card.Subtitle className="mb-2 text-muted">Transfer</Card.Subtitle>
                             <TransferForm account={account} />
                         </Card>
                     </Col>

@@ -130,11 +130,12 @@ const AccountService = {
     transfer: async (accountId, formData) => {
         const token = localStorage.getItem('token');
 
-        const response = await Api.post(`account/${accountId}/transfer`, value, {
+        const response = await Api.post(`account/${accountId}/transfer`, formData, {
             headers: { Authorization: token }
         });
 
         const account = await response.data;
+        console.log(account)
 
         store.dispatch(updateAccount({ account: account }));
 

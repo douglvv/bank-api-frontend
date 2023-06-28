@@ -44,7 +44,7 @@ export default function WithdrawForm(props) {
           setLoading(false);
         }
       }
-      
+
 
     return (
         <>

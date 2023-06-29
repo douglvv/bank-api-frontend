@@ -17,7 +17,7 @@ export default function AccountBalanceCard(props) {
 
             <Col sm={4} className={`wrapperNav bg-light text-orange p-3 `}>
                 <div className="d-grid gap-">
-                    <h1>${props.account.balance}</h1>
+                    <h1>${parseFloat(props.account.balance).toFixed(2)}</h1>
                     <h4 className="mb-3">Balance</h4>
                 </div>
             </Col>

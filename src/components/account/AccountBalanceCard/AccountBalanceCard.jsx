@@ -16,9 +16,9 @@ export default function AccountBalanceCard(props) {
             <h4 className="">Hello, {props.account.name}</h4>
 
             <Col sm={4} className={`wrapperNav bg-light text-orange p-3 `}>
-                <div className="d-grid gap-1">
+                <div className="d-grid gap-">
                     <h1>${props.account.balance}</h1>
-                    <h4>Balance</h4>
+                    <h4 className="mb-3">Balance</h4>
                 </div>
             </Col>
             <Col sm={8} className={`wrapperContent bg-dark text-white p-3`}>
@@ -30,7 +30,7 @@ export default function AccountBalanceCard(props) {
 
                                 <button
                                     onClick={() => clipboard.copy(accountIdRef.current.textContent)}
-                                    title="Copy Account's Number"
+                                    title="Copy Account Number"
                                     className={styles.iconButton}
                                 >
                                     {clipboard.copied ? <FiCheck /> : <FiCopy />}

@@ -1,0 +1,14 @@
+.actionsElement {
+    /* border-radius: 2.5%; */
+    box-shadow: 3px 3px 5px black;
+    /* margin: 3px;
+    padding: 3px; */
+}
+
+.actionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2.5%;
+    padding: 10%;
+}

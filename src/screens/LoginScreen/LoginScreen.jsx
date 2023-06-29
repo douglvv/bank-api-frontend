@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import LoginForm from '../../components/loginForm/LoginForm';
+import Footer from '../../components/footer/Footer';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import imgLogo from '/img/logo.png'
 import styles from './styles.module.css'
@@ -9,7 +10,7 @@ export default function LoginScreen(props) {
     return (
         <>
             <Header />
-            <Container>
+            <Container className='vh-100'>
                 <Row className='d-flex justify-content-center align-items-center m-3'>
                     <Col lg={3}>
                         <Card bg='light' className='align-items-center'>
@@ -20,6 +21,7 @@ export default function LoginScreen(props) {
                     </Col>
                 </Row>
             </Container>
+            <Footer />
         </>
     )
 }
